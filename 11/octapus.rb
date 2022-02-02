@@ -1,4 +1,4 @@
-# require 'byebug'
+require 'byebug'
 
 class Octapus
   attr_reader :energy, :flashes
