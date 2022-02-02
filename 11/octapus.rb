@@ -1,4 +1,4 @@
-require 'byebug'
+# require 'byebug'
 
 class Octapus
   attr_reader :energy, :flashes
@@ -13,16 +13,14 @@ class Octapus
   end
 
   def first_full_flash
-    i = 0
-    while i < 500
-      i += 1
+    1500.times do |i|
       tick
       return i + 1 if full_flash?
-    end
+    end 
   end
 
   def full_flash?
-    @energy.all? {|r| r.all?{|e| e == 0}}
+    @energy.all? { |r| r.all? { |e| e == 0}}
   end
 
   def tick
@@ -88,13 +86,14 @@ end
 
 if __FILE__ == $0
   energy = DATA.each_line.map {|line| line.chomp.chars.map(&:to_i)}
-  octapus = Octapus.new(energy)
+  octapus_one = Octapus.new(energy)
   p "STEP ONE"
-  octapus.pass_days(100)
-  p octapus.flashes
+  octapus_one.pass_days(100)
+  p octapus_one.flashes
   p "STEP TWO"
-  puts octapus.first_full_flash
-  puts octapus.to_s
+  octapus_two = Octapus.new(energy)
+  puts octapus_two.first_full_flash
+  puts octapus_two.to_s
 end
 
 __END__
