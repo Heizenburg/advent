@@ -2,7 +2,7 @@ require 'byebug'
 
 class Octapus
   attr_reader :energy, :flashes
-  
+
   def initialize(energy)
     @energy = energy
     @flashes = 0
@@ -16,7 +16,7 @@ class Octapus
     1500.times do |i|
       tick
       return i + 1 if full_flash?
-    end 
+    end
   end
 
   def full_flash?
