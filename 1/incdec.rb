@@ -5,9 +5,17 @@ def increase(array)
   end
 end
 
+def window(array)
+  array.each_cons(3).map(&:sum)
+end
+
 if __FILE__ == $0
+  # Part One
   input = DATA.each_line.map(&:to_i)
   p increase(input)
+
+  # Part Two
+  p increase(window(input))
 end
 
 __END__
