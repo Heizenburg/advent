@@ -57,17 +57,17 @@ RSpec.describe HeightMap do
   end
 
   it 'finds the neighbor values of a point' do
-    expect(map.neighbor_values([0, 0])).to contain_exactly(1, 3)
-    expect(map.neighbor_values([1, 1])).to contain_exactly(1, 3, 8, 8)
-    expect(map.neighbor_values([2, 2])).to contain_exactly(8, 8)
+    expect(map.neighbour_values([0, 0])).to contain_exactly(1, 3)
+    expect(map.neighbour_values([1, 1])).to contain_exactly(1, 3, 8, 8)
+    expect(map.neighbour_values([2, 2])).to contain_exactly(8, 8)
   end
 
   it 'finds the neighbors of a point' do
-    expect(map.neighbors([0, 0])).to eq([
+    expect(map.neighbours([0, 0])).to eq([
       [1, 0],
       [0, 1],
     ])
-    expect(map.neighbors([1, 1])).to eq([
+    expect(map.neighbours([1, 1])).to eq([
       [0, 1],
       [2, 1],
       [1, 0],
