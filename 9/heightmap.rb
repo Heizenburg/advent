@@ -24,8 +24,7 @@ class HeightMap
     while !points.empty?
       current = points.pop
       basin_points << current if self[*current] < 9
-      candidates = neighbors(current)
-      candidates.each do |c|
+      neighbors(current).each do |c|
         next if self[*c] == 9
         if !basin_points.include?(c) && !points.include?(c)
           points << c
